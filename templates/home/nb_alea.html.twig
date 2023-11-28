@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="example-wrapper">
+<h1>Liste des valeurs de mon tableau random</h1>
+    <ul>
+    {% for val in randomNumbers %}
+        <li>{{ val }}</li>
+    {% endfor %}
+    </ul>
+    <p>le nombre max est : {{nbMax}}</p>
+</div>
+{% endblock %}

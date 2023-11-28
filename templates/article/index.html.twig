@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+{# ne pas overrider le script parent #}
+{{ parent() }}
+<script src="{{ asset('js/vote.js') }}"></script>     
+{% endblock %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{ bonjour }}! ✅</h1>
+    
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    
+    {# Afficher les valeurs du tableau #}
+    <h2>Tableau : longueur {{ tableau|length }}</h2>
+        <ul>
+        {% for val in tableau %}
+            <li>{{ val }}</li>
+        {% endfor %}
+        </ul>
+    <h2>Valeur aléatoire de mon tableau</h2>
+    {{ random(tableau) }}
+
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/Projets_Symfony/vues/src/Controller/ArticleController.php'|file_link(0) }}">src/Controller/ArticleController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/Projets_Symfony/vues/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
+    </ul>
+</div>
+
+<h2>Demo JavaScript dans article</h2>
+<button type="button" >Appuie ici</button>
+<h4>hello</h4>
+<script>
+
+    // Sélectionne le bouton par son type (type="button")
+    var button = document.querySelector('button');
+
+    // Ajoute un écouteur d'événement au bouton
+    button.addEventListener('click', function() {
+        // Génère un nombre aléatoire entre 1 et 100 (ajuste selon tes besoins)
+        var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Sélectionne la balise <p> par son type
+        var h4 = document.querySelector('h4');
+
+        // Modifie le contenu de la balise <p> avec le nombre aléatoire généré
+        h4.textContent = 'Mon nombre aléatoire est : ' + randomNumber;
+    });
+</script>
+{% block content %}
+    {% set nombre = 40 %}
+    <h2>Lien vers une autre page</h2>
+    
+    <a href="{{ path('app_article_number', { number: nombre }) }}">
+    Article {{ nombre }}
+    </a>  
+{% endblock %}
+
+{% endblock %}
+
+
+
+

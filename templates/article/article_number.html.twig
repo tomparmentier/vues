@@ -1,0 +1,14 @@
+{% extends 'article/index.html.twig' %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    
+    <p>voici la page de l'article numéro : {{this_number}}</p>
+    <p>le nom de ma page est : {{controller_name}}</p>
+
+    <a href="{{ path('app_article') }}"><p>Revenir en arrière</p></a>
+    
+</div>
+
+{% endblock %}
